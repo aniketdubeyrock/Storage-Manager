@@ -1,0 +1,11 @@
+{
+  "name": "sample-storage-project",
+  "version": "1.0.0",
+  "description": "Sample test project for Storage Manager web application validation",
+  "environment": "testing",
+  "limits": {
+    "maxFileSizeMb": 500,
+    "allowedExtensions": ["ts", "js", "json", "md", "csv"]
+  }
+}
+

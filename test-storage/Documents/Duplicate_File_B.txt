@@ -1,0 +1,5 @@
+# DUPLICATE CONTENT VERIFICATION
+This exact content is saved in two locations to verify that Storage Manager's SHA-256 duplicate detection engine successfully clusters duplicate candidates, reports accurate reclaimable space, and safely allows selecting and cleaning up duplicate copies.
+Checksum Payload: e29a7cb194f836d10
+Generated on: 2026-11-12
+

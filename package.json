@@ -1,0 +1,92 @@
+{
+  "name": "storage-manager",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Desktop-grade Local Storage Analyzer and Cloud Backup Manager",
+  "author": "Aniket",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "test": "vitest run",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "electron:dev": "concurrently -k \"vite\" \"wait-on tcp:5173 && electron .\"",
+    "electron:build": "tsc -b && vite build && electron-builder --win",
+    "electron:build:portable": "tsc -b && vite build && electron-builder --win portable",
+    "electron:build:nsis": "tsc -b && vite build && electron-builder --win nsis"
+  },
+  "dependencies": {
+    "@tanstack/react-table": "^9.3.1",
+    "idb": "^8.0.4",
+    "jszip": "^3.10.2",
+    "lucide-react": "^1.72.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-hook-form": "^7.92.0",
+    "react-hot-toast": "^2.6.1",
+    "react-is": "^19.3.1",
+    "react-router-dom": "^7.18.5",
+    "recharts": "^3.10.1",
+    "zod": "^4.6.7",
+    "zustand": "^5.1.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.5",
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.10",
+    "@types/jszip": "^3.4.0",
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "concurrently": "^10.0.7",
+    "electron": "^45.3.1",
+    "electron-builder": "^26.18.0",
+    "fake-indexeddb": "^6.2.8",
+    "jsdom": "^29.1.1",
+    "oxlint": "^1.90.0",
+    "tailwindcss": "^4.3.5",
+    "typescript": "~7.0.2",
+    "vite": "^8.3.6",
+    "vitest": "^5.1.0",
+    "wait-on": "^9.5.1"
+  },
+  "build": {
+    "appId": "com.storagemanager.app",
+    "productName": "Storage Manager",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "nodeGypRebuild": false,
+    "npmRebuild": false,
+    "win": {
+      "executableName": "Storage Manager",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Storage Manager"
+    }
+  }
+}
