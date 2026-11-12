@@ -161,45 +161,59 @@ The repository is architected for upcoming AI-driven storage management:
 
 ---
 
-## 🚦 Quick Start
+## 🚦 Quick Start & Setup Guide
 
-### Prerequisites
-- [Node.js](https://nodejs.org/) v18.0 or newer
-- npm v9.0 or newer
-- Windows 10/11 (or macOS / Linux for web mode)
+> [!TIP]
+> For the complete comprehensive setup walkthrough, see the dedicated [**SETUP.md Guide**](SETUP.md).
 
-### 1. Clone & Install
+### 🖥️ Option 1: Desktop Setup (`.exe` Software)
+
+#### For Regular Users (No Code Needed):
+1. Download **`Storage Manager Setup 1.0.0.exe`** from [Releases](https://github.com/aniketdubeyrock/Storage-Manager/releases) or the `release/` folder.
+2. Double-click to install. It automatically creates **Desktop** and **Start Menu** shortcuts.
+3. Launch and use Storage Manager as a native desktop application!
+
+#### For Developers Building from Source:
 ```bash
-git clone https://github.com/aniketdubeyrock/Storage-Manager.git
-cd Storage-Manager
+# 1. Install dependencies
 npm install
-```
 
-### 2. Run in Web Browser
-```bash
-npm run dev
-```
-Open [http://localhost:5173](http://localhost:5173) in Chrome or Edge.
-
-### 3. Run in Desktop Dev Mode (Electron)
-```bash
+# 2. Run in live desktop dev mode (hot-reload)
 npm run electron:dev
-```
-Launches the native Windows desktop software window with live hot-reload.
 
-### 4. Build Standalone `.exe` Software
-```bash
-# Build the Single-File Setup Installer (.exe):
+# 3. Build single-file Windows Installer (.exe):
 npm run electron:build:nsis
 
-# Build the Single-File Portable Executable (.exe):
+# 4. Build single-file Portable executable (.exe):
 npm run electron:build:portable
 ```
-The output executable will be created in the `release/` directory:
-- `release/Storage Manager Setup 1.0.0.exe` (Single-file installer)
-- `release/win-unpacked/Storage Manager.exe` (Standalone executable)
+Output files are generated in `release/`:
+- `release/Storage Manager Setup 1.0.0.exe` (Single-file installer wizard)
+- `release/Storage Manager 1.0.0.exe` (Single-file portable app)
 
-### 5. Run Automated Tests
+---
+
+### 🌐 Option 2: Web Browser Setup
+
+#### 1. Prerequisites
+- [Node.js](https://nodejs.org/) v18.0 or newer
+- Google Chrome, Microsoft Edge, Brave, or Opera
+
+#### 2. Clone & Start
+```bash
+# Clone the repository
+git clone https://github.com/aniketdubeyrock/Storage-Manager.git
+cd Storage-Manager
+
+# Install packages
+npm install
+
+# Start local server
+npm run dev
+```
+Open **[http://localhost:5173](http://localhost:5173)** in your browser.
+
+#### 3. Run Automated Tests
 ```bash
 npm run test
 ```
